@@ -234,16 +234,16 @@ Positive slack which means the design is meeting the timing requirements.
 There are more timing checks to note while performing STA. Apart from the basic setup and hold checks which happen in data pins and clock pins. 
 
 * Clock Gating Check:
- * Is a process that ensures that the clock gating logic is properly designed and does not introduce timing violations.  
- * The check includes checks for propagation delay, skew, and signal integrity to ensure the proper operation of the circuit.
+  * Is a process that ensures that the clock gating logic is properly designed and does not introduce timing violations.  
+  * The check includes checks for propagation delay, skew, and signal integrity to ensure the proper operation of the circuit.
 
 * Async Pin Checks:
- * Is a process that ensures that the asynchronous inputs are properly synchronized and do not cause timing violations in the design.
- * The check includes setup and hold time checks, recovery time checks, pulse width checks, skew checks, and fanout checks to ensure the proper operation of the circuit.
+  * Is a process that ensures that the asynchronous inputs are properly synchronized and do not cause timing violations in the design.
+  * The check includes setup and hold time checks, recovery time checks, pulse width checks, skew checks, and fanout checks to ensure the proper operation of the circuit.
 
 * Data to Data Checks:
- * Are a set of checks that ensure that the data path in a digital circuit meets the timing requirements. 
- * The checks can be performed using slack-based or delay-based methods and include maximum and minimum data delay checks, data transition checks, data skew checks, and data pulse width checks. 
+  * Are a set of checks that ensure that the data path in a digital circuit meets the timing requirements. 
+  * The checks can be performed using slack-based or delay-based methods and include maximum and minimum data delay checks, data transition checks, data skew checks, and data pulse width checks. 
 
 ![image](https://user-images.githubusercontent.com/62239145/220392877-f91380b9-ccc2-4d72-b106-7a1cb3acf1ab.png)
 
@@ -253,19 +253,19 @@ There are more timing checks to note while performing STA. Apart from the basic 
 There are more sets of checks which are done by the STA, called the Design Rule Checks.
 
 * Slew/Transition Analysis 
- * Is a process of analyzing the timing behavior of a digital circuit with respect to the output signal transitions.
- * The analysis involves several checks, including maximum slew, minimum slew, slew rate, and slew propagation delay checks. 
+  * Is a process of analyzing the timing behavior of a digital circuit with respect to the output signal transitions.
+  * The analysis involves several checks, including maximum slew, minimum slew, slew rate, and slew propagation delay checks. 
 
 * load analysis 
- * Analyzing the timing behavior of a digital circuit with respect to the load capacitance at the output of the circuit. 
- * Load Analysis also involves several checks, including maximum load, minimum load, and fanout checks, to ensure that the circuit functions correctly and meets its timing specifications.
+  * Analyzing the timing behavior of a digital circuit with respect to the load capacitance at the output of the circuit. 
+  * Load Analysis also involves several checks, including maximum load, minimum load, and fanout checks, to ensure that the circuit functions correctly and meets its timing specifications.
 
 * Clock Skew Analysis
- * Is a process of analyzing the timing behavior of a digital circuit with respect to the variation in arrival times of the clock signal at different points in the circuit.
- * Clock Skew Analysis involves several checks to ensure that the circuit functions correctly and meets its timing specifications.  
+  * Is a process of analyzing the timing behavior of a digital circuit with respect to the variation in arrival times of the clock signal at different points in the circuit.
+  * Clock Skew Analysis involves several checks to ensure that the circuit functions correctly and meets its timing specifications.  
  
 * Pulse Width Checks
- * Ensure that the pulse widths are within the required limits to prevent timing violations, such as setup and hold violations.
+  * Ensure that the pulse widths are within the required limits to prevent timing violations, such as setup and hold violations.
 
 
 ### Latch Timing
@@ -298,7 +298,7 @@ The Liberty File Reference from UC Berkley (https://people.eecs.berkeley.edu/~al
  * open them using the leafpad command 
  * our task is to 'find all the cells in simple_max.lib'
  * We could use a command grep to display all the instances where the cell is mentioned in the .lib file.  
- * use the code ```grep -c "cell " simple_max.lib ``` to print all the instances where the keyword **cell** is used
+ * use the code ```grep "cell " simple_max.lib ``` to print all the instances where the keyword **cell** is used
  ![image](https://user-images.githubusercontent.com/62239145/220451495-bf7cbfed-b185-422b-ac19-8d919d40349a.png)
  *  
      
