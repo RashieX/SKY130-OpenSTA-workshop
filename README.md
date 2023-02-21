@@ -3,7 +3,7 @@
 The following repository consists of knowledge gained and steps followed while doing the Sign-off Timing Analysis - Basics to Advanced Using [OpenSTA/SKY130](https://github.com/The-OpenROAD-Project/OpenSTA/blob/master/doc/OpenSTA.pdf) workshop. The [workshop](https://www.vlsisystemdesign.com/sign-off-timing-analysis-basics-to-advanced/) covers all the basic concepts in STA and Timing constraints using open soucrce EDA tools such as OpenSTA/SKY130. 
 
 # Table of Contents 
-  * Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
+  * Sky130 Day 1
     * Day 1 Lectures 
       * STA Definition
       * Timing Paths
@@ -19,6 +19,27 @@ The following repository consists of knowledge gained and steps followed while d
       * Inputs to OpenSTA 
       * Constraints creation 
       * OpenSTA runscripts 
+  * Sky130 Day 2
+    * Day 2 Lectures
+      * Other Timing Checks
+      * Design Rule Checks
+      * Latch Timing
+      * STA text Report 
+    * Day 2 Lab
+      * Liberty Files
+      * SPEF
+      * Timing Reports
+  * Sky130 Day 3
+    * Day 3 Lectures
+      * Multiple Clocks
+      * Timing Arcs and Timing Sense 
+      * Cell Delays and Clock Network
+      * Setup and Hold Detailed 
+      * STA Text Report  
+    * Day 3 Lab  
+      * Reg to Reg STA analysis 
+      * Slack Computation 
+      * Review Setup Check Report 
      
      
 # Day 1 
@@ -205,5 +226,96 @@ we get these final results
 ![image](https://user-images.githubusercontent.com/62239145/220332172-79da3d2e-f4df-44e1-8a3d-84befcb78093.png)
 
 Positive slack which means the design is meeting the timing requirements.
+
+# Day 2 
+## Lectures 
+### Other Timing Check 
+
+There are more timing checks to note while performing STA. Apart from the basic setup and hold checks which happen in data pins and clock pins. 
+
+* Clock Gating Check:
+ * Is a process that ensures that the clock gating logic is properly designed and does not introduce timing violations.  
+ * The check includes checks for propagation delay, skew, and signal integrity to ensure the proper operation of the circuit.
+
+* Async Pin Checks:
+ * Is a process that ensures that the asynchronous inputs are properly synchronized and do not cause timing violations in the design.
+ * The check includes setup and hold time checks, recovery time checks, pulse width checks, skew checks, and fanout checks to ensure the proper operation of the circuit.
+
+* Data to Data Checks:
+ * Are a set of checks that ensure that the data path in a digital circuit meets the timing requirements. 
+ * The checks can be performed using slack-based or delay-based methods and include maximum and minimum data delay checks, data transition checks, data skew checks, and data pulse width checks. 
+
+![image](https://user-images.githubusercontent.com/62239145/220392877-f91380b9-ccc2-4d72-b106-7a1cb3acf1ab.png)
+
+
+### Design Rule Checks
+
+There are more sets of checks which are done by the STA, called the Design Rule Checks.
+
+* Slew/Transition Analysis 
+ * Is a process of analyzing the timing behavior of a digital circuit with respect to the output signal transitions.
+ * The analysis involves several checks, including maximum slew, minimum slew, slew rate, and slew propagation delay checks. 
+
+* load analysis 
+ * Analyzing the timing behavior of a digital circuit with respect to the load capacitance at the output of the circuit. 
+ * Load Analysis also involves several checks, including maximum load, minimum load, and fanout checks, to ensure that the circuit functions correctly and meets its timing specifications.
+
+* Clock Skew Analysis
+ * Is a process of analyzing the timing behavior of a digital circuit with respect to the variation in arrival times of the clock signal at different points in the circuit.
+ * Clock Skew Analysis involves several checks to ensure that the circuit functions correctly and meets its timing specifications.  
+ 
+* Pulse Width Checks
+ * Ensure that the pulse widths are within the required limits to prevent timing violations, such as setup and hold violations.
+
+
+### Latch Timing
+
+While data is launched and captured at the edges in **flip-flops**, **latches** allow for more flexible timing, as data can be accepted at any time before the latch closes. This means that latches can tolerate greater variation in delay times compared to flip-flops. When there are differences in delay times between two logic paths, **time borrowing** is possible in latched-based designs. This means that if one logic path has more delay and the other has less delay, the time is borrowed from the logic path with less delay in the next clock cycle. This helps to maintain the required timing and ensures that the circuit operates correctly.
+
+![image](https://user-images.githubusercontent.com/62239145/220428472-1d1caeef-1063-46e1-a28e-6561d833d778.png)
+
+### STA Text Report
+ 
+![image](https://user-images.githubusercontent.com/62239145/220428686-53475a7a-04ee-467d-b8ce-73748d73db5d.png)
+
+The STA text report generates a report that shows the critical path of the circuit, which is the longest path from an input to an output that determines the maximum delay in the circuit. The report also shows the timing margins, which is the difference between the calculated delay and the maximum allowed delay for the design to function properly.
+
+
+## Lab 
+### Liberty Files 
+
+The .lib file is an ASCII file that contains timing and power parameters for individual circuit components. It includes information such as timing models, interconnect delays, and I/O delay paths. This file is used to calculate maximum timing values, perform timing checks, and optimize design.
+The Liberty File Reference from UC Berkley (https://people.eecs.berkeley.edu/~alanmi/publications/other/liberty07_03.pdf) is a useful resource for learning more about this topic.
+
+![image](https://user-images.githubusercontent.com/62239145/220446228-0bebf760-3a44-465c-a227-d512fe73fda6.png)
+
+#### Steps to Follow
+
+* Understanding LIB parsing
+ * Type 'cd lab2' to enter the lab2 directory
+ * Type 'ls' you will see 2 library files with the following names: simple_min.lib and simple_max.lib
+ ![image](https://user-images.githubusercontent.com/62239145/220447445-c3114cc1-b654-487b-9bc1-f4e8d8634645.png)
+ * open them using the leafpad command 
+ * our task is to 'find all the cells in simple_max.lib'
+ * We could use a command grep to display all the instances where the cell is mentioned in the .lib file.  
+ * use the code ```grep -c "cell " simple_max.lib ``` to print all the instances where the keyword **cell** is used
+ ![image](https://user-images.githubusercontent.com/62239145/220451495-bf7cbfed-b185-422b-ac19-8d919d40349a.png)
+ *  
+     
+### SPEF 
+
+### Timing Report 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
