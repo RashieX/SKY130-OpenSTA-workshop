@@ -385,11 +385,47 @@ Sequential arcs are important for determining the maximum frequency at which the
 ![image](https://user-images.githubusercontent.com/62239145/220841485-33b07ade-2ee7-4af5-97c7-f379274442b5.png)
 
 
+
+
 ### Cell Delays and Clock Network
 
-//What are Cell Delays and how are they calculated?
+//What are Cell Delays and how are they calculated? with positive clock skew, negative clock skew and clock latency and clock jitter 
+* Cell delays refer to the amount of time it takes for a logic gate or cell to propagate a signal from its input to output.
+
+![image](https://user-images.githubusercontent.com/62239145/220889500-e0af5f96-6268-4024-88b3-d3aa23f79ede.png)
+
+### Positive Clock Skew 
+* This occurs when the rising edge of the clock signal arrives at a destination later than it does at the source.
+
+### Negative Clock Skew 
+* This occurs when the rising edge of the clock signal arrives at a destination earlier than it does at the source.
 
 
+//clock latency 
+### Clock Latency 
+* This is the amount of time it takes for a clock signal to propagate through a circuit from its source to its destination. 
+
+![image](https://user-images.githubusercontent.com/62239145/220890514-d4970d79-19a5-419f-9acd-eff421dc5281.png)
+
+### Clock Jitter
+* This is the variation in the arrival time of the clock signal from one clock cycle to another. 
+
+
+### Setup and Hold Detailed 
+
+Here we will be looking at setup and hold checks in detailed, when we bring about clock skew, jitter into the picture 
+
+![image](https://user-images.githubusercontent.com/62239145/220891270-a373ac5e-f07f-442f-b3ad-7980a25da10c.png)
+
+![image](https://user-images.githubusercontent.com/62239145/220891304-79c2a0c3-836a-4553-8b06-8f5ad9a06856.png)
+
+![image](https://user-images.githubusercontent.com/62239145/220891345-6aec1370-a55b-4169-8190-c0f4f76bc379.png)
+
+![image](https://user-images.githubusercontent.com/62239145/220891553-62031657-dfd0-46ae-8715-d6f573724361.png)
+
+![image](https://user-images.githubusercontent.com/62239145/220891606-d6488918-5b89-4755-8552-f010ee4e317d.png)
+
+![image](https://user-images.githubusercontent.com/62239145/220891637-65b0e503-51b7-4fbd-bfc6-a1912cbdae63.png)
 
 
 
